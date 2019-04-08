@@ -23,6 +23,8 @@ import android.widget.TextView
 
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
+import com.amazonaws.mobile.config.AWSConfiguration
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient
 
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -34,11 +36,26 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private var mAuthTask: UserLoginTask? = null
+    private var mAWSAppSyncClient: AWSAppSyncClient = AWSAppSyncClient.builder().build();
+
+    fun runMutation(){
+        var createTodoInput = createtodo.builder().
+            name("Use AppSync").
+            description("Realtime and Offline").
+            build();
+
+        mAWSAppSyncClient.mutate(CreateTodoMutation.builder().input(createTodoInput).build())
+            .enqueue(mutationCallback);
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         // Set up the login form.
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+            .context(getApplicationContext())
+            .awsConfiguration(AWSConfiguration(getApplicationContext()))
+            .build();
         populateAutoComplete()
         password.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
             if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
