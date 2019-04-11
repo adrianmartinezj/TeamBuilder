@@ -39,4 +39,12 @@ dependencies {
     implementation 'com.amazonaws:aws-android-sdk-appsync:2.7.+'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    // AWS Mobile SDK for Android
+    def aws_version = '2.6.27'
+    implementation "com.amazonaws:aws-android-sdk-core:$aws_version"
+    implementation "com.amazonaws:aws-android-sdk-auth-core:$aws_version@aar"
+    implementation "com.amazonaws:aws-android-sdk-pinpoint:$aws_version"
+    implementation "com.amazonaws:aws-android-sdk-cognitoidentityprovider:$aws_version"
+    implementation "com.amazonaws:aws-android-sdk-auth-userpools:$aws_version@aar"
+    implementation "com.amazonaws:aws-android-sdk-auth-ui:$aws_version@aar"
 }

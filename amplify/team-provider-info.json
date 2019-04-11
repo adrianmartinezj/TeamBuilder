@@ -1,0 +1,19 @@
+{
+    "jupiter": {
+        "awscloudformation": {
+            "AuthRoleName": "teambuilder-20190411081813-authRole",
+            "UnauthRoleArn": "arn:aws:iam::801024114707:role/teambuilder-20190411081813-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::801024114707:role/teambuilder-20190411081813-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "teambuilder-20190411081813-deployment",
+            "UnauthRoleName": "teambuilder-20190411081813-unauthRole",
+            "StackName": "teambuilder-20190411081813",
+            "StackId": "arn:aws:cloudformation:us-east-2:801024114707:stack/teambuilder-20190411081813/05461360-5c6d-11e9-be3e-02649197f7a0"
+        },
+        "categories": {
+            "auth": {
+                "cognitofdbe05fe": {}
+            }
+        }
+    }
+}

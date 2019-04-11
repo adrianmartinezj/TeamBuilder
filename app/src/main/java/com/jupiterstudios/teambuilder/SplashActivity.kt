@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
             override fun run(){
                 try{
                     Thread.sleep(2500)
-                    val intent = Intent(baseContext, LoginActivity::class.java)
+                    val intent = Intent(baseContext, AuthenticatorActivity::class.java)
                     startActivity(intent);
                 } catch(e : Exception) {
                     e.printStackTrace()
