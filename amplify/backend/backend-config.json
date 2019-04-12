@@ -1,11 +1,8 @@
 {
-	"api": {
-		"teambuilder": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"securityType": "API_KEY"
-			}
+	"auth": {
+		"cognitofdbe05fe": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }
