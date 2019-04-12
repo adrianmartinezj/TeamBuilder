@@ -1,13 +1,42 @@
 package com.jupiterstudios.teambuilder
 
+import android.app.Activity
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import com.amazonaws.mobile.auth.core.DefaultSignInResultHandler
+import com.amazonaws.mobile.auth.core.IdentityProvider
+import com.amazonaws.mobile.auth.ui.AuthUIConfiguration
 
 class AuthenticatorActivity : AppCompatActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authenticatior)
+
+        var userField = findViewById(R.id.username_field) as EditText
+        var passField = findViewById(R.id.password_field) as EditText
+        var submitButton = findViewById(R.id.login_submit_button) as Button
+        var registerButton = findViewById(R.id.login_register_button) as Button
+
+        // set on-click listener
+        submitButton.setOnClickListener {
+            val username = userField.text;
+            val password = passField.text;
+            Toast.makeText(this@AuthenticatorActivity, username, Toast.LENGTH_LONG).show()
+        }
+            // your code to validate the user_name and password combination
+            // and verify the same
+        registerButton.setOnClickListener{
+            val intent = Intent(baseContext, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
 
